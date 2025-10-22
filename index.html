@@ -1,0 +1,140 @@
+<!-- Save as: index.html -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Junaid Siddiqui — Portfolio</title>
+  <link rel="stylesheet" href="styles.css" />
+  <meta name="description" content="Portfolio & homepage of Junaid Siddiqui — student, developer, and project creator (DeepFake Detection, Health Chatbot, AES encryption projects, and more)." />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <h1 class="logo">Junaid Siddiqui</h1>
+      <nav class="nav">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#profile">Full Profile</a>
+        <a href="#contact">Contact</a>
+        <button id="themeToggle" class="btn small">Toggle Theme</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="hero" class="hero">
+      <div class="container hero-inner">
+        <div>
+          <h2>Computer Engineering Student • Developer</h2>
+          <p>
+            Hi — I'm <strong>Junaid Siddiqui</strong>. I build projects (DeepFake detection, health chatbots, encryption tools),
+            learn new tech, and prepare presentations & experiments for college courses at Mumbai University.
+          </p>
+          <div class="cta-row">
+            <a class="btn" href="#projects">View Projects</a>
+            <a class="btn ghost" href="#contact">Get in touch</a>
+          </div>
+        </div>
+        <div class="hero-meta">
+          <ul>
+            <li><strong>Location:</strong> India</li>
+            <li><strong>College:</strong> Anjuman-I-Islam’s M. H. Saboo Siddik College of Engineering</li>
+            <li><strong>Devices:</strong> Lenovo laptop (dev), Samsung Guru phone</li>
+            <li><strong>Workflows:</strong> VS Code, Chrome, Turbo C++ (legacy)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="container section">
+      <h3>About</h3>
+      <p>
+        I'm studying Computer Engineering (Mumbai University curriculum) and working on academic and mini-projects:
+        DeepFake Detection (images & video), a Health Chatbot integrated with the Gemini API, AES-based symmetric encryption
+        with a medical-help chatbot, recreating web apps (E-Way Bill site clone with PHP + MySQL), and projects for Computer Graphics.
+      </p>
+      <p>
+        I practice Java, C/C++, Python, JavaScript/React, HTML/CSS and have used MySQL, PHP and various tools to build projects and presentations.
+      </p>
+    </section>
+
+    <section id="projects" class="container section">
+      <h3>Selected Projects</h3>
+      <div class="grid">
+        <article class="card">
+          <h4>DeepFake Detection</h4>
+          <p>Project to detect deepfakes in images & video — dataset prep, model experimentation, and GUI for uploading and analyzing media.</p>
+        </article>
+
+        <article class="card">
+          <h4>Health Chatbot (React + Gemini API)</h4>
+          <p>Chatbot for medical help — integrates symptom handling, asks follow-ups, suggests hospitals/medicines/doctors. Runs in VS Code and accessed via Chrome.</p>
+        </article>
+
+        <article class="card">
+          <h4>Symmetric Encryption (AES) + Medical Chatbot</h4>
+          <p>Mini project combining AES encryption and a secure chatbot interface for medical data handling.</p>
+        </article>
+
+        <article class="card">
+          <h4>E-Way Bill Website Clone</h4>
+          <p>Recreated Indian Government E-Way Bill site UI using HTML, CSS, JS and extended with PHP + MySQL backend and PDF generation/dashboard ideas.</p>
+        </article>
+
+        <article class="card">
+          <h4>Computer Graphics Experiments</h4>
+          <p>Bezier Curves, Bresenham line algorithm, Mid-point circle/ellipse, Liang-Barsky and Cohen-Sutherland clipping — implemented as part of coursework.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="skills" class="container section">
+      <h3>Skills & Tools</h3>
+      <ul class="skills">
+        <li>Languages: Java, C, C++, Python, JavaScript, PHP, SQL</li>
+        <li>Frontend: HTML, CSS, React (projects & presentations)</li>
+        <li>ML & CV: DeepFake detection workflows, dataset handling</li>
+        <li>Tools: VS Code, Chrome, Turbo C++ (education), Git (version control experiments)</li>
+      </ul>
+    </section>
+
+    <section id="profile" class="container section">
+      <h3>Full profile (notes from past work & study)</h3>
+      <ul>
+        <li>Student under Mumbai University curriculum; prepares experiments and reports for Computer Graphics, Data Structures, Algorithms, Microprocessors.</li>
+        <li>Worked on: Stack using singly linked-list, Tower of Hanoi, BST, Circular queue, Mid-point & Bresenham algorithms, Line clipping algorithms.</li>
+        <li>College project topics & tasks: Version control for Hospital Management System, Smart Attendance System (Face Recognition), DeepFake Detection project, AES encryption + Chatbot for Medical Help.</li>
+        <li>Other tasks: Creating GUI apps in Java for drawing emojis/shapes; Snake game enhancements (restart without rerunning).</li>
+        <li>Prepared presentations (PPT + viva) for Health Chatbot project; created staged surprise video for family (timeline planning).</li>
+        <li>Working knowledge: React, Tailwind-like styling (I can adapt the site if you prefer that), MySQL integration, PDF generation on server side.</li>
+      </ul>
+      <p class="muted">If any of the above needs editing or you want contact/social links shown publicly, tell me what to display and I'll update the site code.</p>
+    </section>
+
+    <section id="contact" class="container section">
+      <h3>Contact</h3>
+      <p>If you'd like to connect, replace placeholders below with your real contact methods.</p>
+      <div class="contact-grid">
+        <div>
+          <p><strong>Email:</strong> <span id="email">junaid@example.com</span></p>
+          <p><strong>Location:</strong> India</p>
+        </div>
+        <div>
+          <button id="copyProfile" class="btn">Copy Summary JSON</button>
+          <button id="downloadBtn" class="btn ghost">Download Profile JSON</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> Junaid Siddiqui — Built with HTML, CSS, JS</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
