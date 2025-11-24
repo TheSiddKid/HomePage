@@ -167,12 +167,15 @@ h3{margin:0 0 12px 0}
   color: #ffcc00;
   transition: color 0.3s ease;
 }
+/* Fix for heading / link colors (optional) */
 h1, h2, h3, h4, h5, h6, a {
-  color: #0D7
+  color: #0D7A71; /* teal for headings/links (replace if you want another color) */
+}
+
 /* Full page selection style */
 ::selection {
-  background: #E6FBF7;  /* mint */
-  color: #0D7A71;       /* teal */
+  background: #E6FBF7;  /* mint selection background */
+  color: #0D7A71;       /* teal selected text */
 }
 
 ::-moz-selection {
