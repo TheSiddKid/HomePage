@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { Link } from "react-router-dom";
 import '../styles/index.css';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -105,9 +104,14 @@ const Home: React.FC = () => {
                 University.
               </p>
               <div className="cta-row">
-                <Link to="/projects" className="btn">View Projects</Link>
-
-
+                <a
+                  href="https://projects.thesiddkid.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn"
+                >
+                  View Projects
+                </a>
                 <a className="btn ghost" href="#contact">Get in touch</a>
               </div>
             </div>
@@ -139,8 +143,14 @@ const Home: React.FC = () => {
               <h4>Projects Subdomain</h4>
               <p>
                 Check out all my projects online:{" "}
-                <Link to="/projects" className="btn">View Projects</Link>
-
+                <a
+                  href="https://projects.thesiddkid.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn"
+                >
+                  View Projects
+                </a>
               </p>
             </article>
 
