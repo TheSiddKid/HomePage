@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import '../styles/index.css';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import MindsetCards from "../components/MindsetCards";
+
 
 const Home: React.FC = () => {
   useEffect(() => {
@@ -121,6 +123,8 @@ const Home: React.FC = () => {
           </div>
         </section>
 
+        <MindsetCards />
+
         <section id="about" className="container section">
           <h3>About</h3>
           <p>
@@ -130,6 +134,7 @@ const Home: React.FC = () => {
             I practice Java, C/C++, Python, JavaScript/React, HTML/CSS and have used MySQL, PHP and various tools to build projects and presentations.
           </p>
         </section>
+        
 
         <section id="projects" className="container section">
           <h3>Selected Projects</h3>
