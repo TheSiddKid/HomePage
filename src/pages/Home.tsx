@@ -101,7 +101,10 @@ const Home: React.FC = () => {
                 University.
               </p>
               <div className="cta-row">
-                <Link to="/projects" className="btn">View Projects</Link>
+                <a href="https://projects.thesiddkid.com" className="btn" target="_blank" rel="noopener noreferrer">
+  View Projects
+</a>
+
 
 
                 <a className="btn ghost" href="#contact">Get in touch</a>
