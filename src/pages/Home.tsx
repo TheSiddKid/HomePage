@@ -135,14 +135,20 @@ const Home: React.FC = () => {
         <section id="projects" className="container section">
           <h3>Selected Projects</h3>
           <div className="grid">
-            <article className="card">
-              <h4>Projects Subdomain</h4>
-              <p>
-                Check out all my projects online:{" "}
-                <Link to="/projects" className="btn">View Projects</Link>
-
-              </p>
-            </article>
+<article className="card">
+  <h4>Projects Subdomain</h4>
+  <p>
+    Check out all my projects online:{" "}
+    <a
+      href="https://projects.thesiddkid.com"
+      className="btn"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      View Projects
+    </a>
+  </p>
+</article>
 
             <article className="card">
               <h4>DeepFake Detection</h4>
