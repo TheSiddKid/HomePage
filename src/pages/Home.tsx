@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import "../styles/index.css";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -39,6 +40,9 @@ const Home: React.FC = () => {
   ========================= */
   const [activeMindset, setActiveMindset] = useState<Mindset | null>(null);
 
+  /* =========================
+     THEME + ESC HANDLING
+  ========================= */
   useEffect(() => {
     const yearEl = document.getElementById("year");
     if (yearEl) yearEl.textContent = new Date().getFullYear().toString();
@@ -60,6 +64,15 @@ const Home: React.FC = () => {
     if (localStorage.getItem("theme") === "light") {
       root.classList.add("light-mode");
     }
+
+    const handleEsc = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setActiveMindset(null);
+      }
+    };
+
+    window.addEventListener("keydown", handleEsc);
+    return () => window.removeEventListener("keydown", handleEsc);
   }, []);
 
   return (
@@ -117,15 +130,20 @@ const Home: React.FC = () => {
 
           <div className="mindset-grid">
             {mindsetData.map((item, index) => (
-              <div
+              <motion.div
                 key={index}
                 className="mindset-card"
                 onClick={() => setActiveMindset(item)}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1, duration: 0.4 }}
+                whileHover={{ scale: 1.03 }}
               >
                 <h4>{item.title}</h4>
                 <p>{item.preview}</p>
                 <span className="read-more">Read more →</span>
-              </div>
+              </motion.div>
             ))}
           </div>
         </section>
@@ -167,28 +185,37 @@ const Home: React.FC = () => {
         </section>
 
         {/* =========================
-           STEP 4: MODAL
+           STEP 4: MODAL (Animated)
         ========================= */}
-        {activeMindset && (
-          <div
-            className="modal-overlay"
-            onClick={() => setActiveMindset(null)}
-          >
-            <div
-              className="modal"
-              onClick={(e) => e.stopPropagation()}
+        <AnimatePresence>
+          {activeMindset && (
+            <motion.div
+              className="modal-overlay"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setActiveMindset(null)}
             >
-              <h3>{activeMindset.title}</h3>
-              <p>{activeMindset.content}</p>
-              <button
-                className="btn ghost"
-                onClick={() => setActiveMindset(null)}
+              <motion.div
+                className="modal"
+                initial={{ y: 30, opacity: 0, scale: 0.95 }}
+                animate={{ y: 0, opacity: 1, scale: 1 }}
+                exit={{ y: 20, opacity: 0, scale: 0.95 }}
+                transition={{ duration: 0.25 }}
+                onClick={(e) => e.stopPropagation()}
               >
-                Close
-              </button>
-            </div>
-          </div>
-        )}
+                <h3>{activeMindset.title}</h3>
+                <p>{activeMindset.content}</p>
+                <button
+                  className="btn ghost"
+                  onClick={() => setActiveMindset(null)}
+                >
+                  Close
+                </button>
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </main>
 
       <Footer />
