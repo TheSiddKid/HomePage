@@ -36,16 +36,13 @@ const Home: React.FC = () => {
         "Health Chatbot (React + Gemini API)",
         "AES symmetric encryption + Chatbot",
         "E-Way Bill UI clone (HTML/CSS/JS + PHP + MySQL)",
-        "Computer Graphics experiments (Bezier, Bresenham, Mid-point algorithms)"
+        
       ],
       skills: ["Java", "C", "C++", "Python", "JavaScript", "PHP", "SQL", "HTML", "CSS", "React"],
       tools: ["VS Code", "Chrome", "Turbo C++", "MySQL", "Git"],
       notes: [
-        "Works on academic experiments: stacks (linked-list), BST, circular queue, line clipping algorithms",
-        "Preparing presentations, PPT & viva for projects",
         "Creating small GUI apps & games (Java, Snake game enhancements)"
       ],
-      devices: { laptop: "Lenovo", phone: "Samsung Guru" },
     };
 
     const copyBtn = document.getElementById('copyProfile');
@@ -100,8 +97,7 @@ const Home: React.FC = () => {
               <h2>Computer Engineering Student • Developer</h2>
               <p>
                 Hi — I'm <strong>Junaid Siddiqui</strong>. I build projects (DeepFake
-                detection, health chatbots, encryption tools), learn new tech, and
-                prepare presentations & experiments for college courses at Mumbai
+                detection, health chatbots, encryption tools), learn new tech at Mumbai
                 University.
               </p>
               <div className="cta-row">
@@ -125,7 +121,7 @@ const Home: React.FC = () => {
         <section id="about" className="container section">
           <h3>About</h3>
           <p>
-            I'm studying Computer Engineering (Mumbai University curriculum) and working on academic and mini-projects: DeepFake Detection (images & video), a Health Chatbot integrated with the Gemini API, AES-based symmetric encryption with a medical-help chatbot, recreating web apps (E-Way Bill site clone with PHP + MySQL), and projects for Computer Graphics.
+            I'm studying Computer Engineering (Mumbai University curriculum) and working on academic and mini-projects: DeepFake Detection (images & video), a Health Chatbot integrated with the Gemini API, AES-based symmetric encryption with a medical-help chatbot, recreating web apps (E-Way Bill site clone with PHP + MySQL).
           </p>
           <p>
             I practice Java, C/C++, Python, JavaScript/React, HTML/CSS and have used MySQL, PHP and various tools to build projects and presentations.
@@ -170,10 +166,7 @@ const Home: React.FC = () => {
               <p>Recreated Indian govt. portal UI with backend + PDF ideas.</p>
             </article>
 
-            <article className="card">
-              <h4>Computer Graphics Experiments</h4>
-              <p>Bezier curves, Bresenham, ellipse/circle drawing, line clipping.</p>
-            </article>
+            
           </div>
         </section>
 
@@ -188,12 +181,11 @@ const Home: React.FC = () => {
         </section>
 
         <section id="profile" className="container section">
-          <h3>Full profile (notes from past work & study)</h3>
+          <h3>Full profile</h3>
           <ul>
-            <li>Student under Mumbai University curriculum; prepares experiments and reports for Computer Graphics, Data Structures, Algorithms, Microprocessors.</li>
-            <li>Worked on: Stack using singly linked-list, Tower of Hanoi, BST, Circular queue, Mid-point & Bresenham algorithms, Line clipping algorithms.</li>
+            <li>Student under Mumbai University curriculum.</li>
             <li>Project topics: Hospital Management with Git, Smart Attendance, DeepFake Detection, AES Chatbot.</li>
-            <li>Made Java GUIs, improved Snake game, edited surprise videos (family use).</li>
+            <li>Made Java GUIs, improved Snake game.</li>
             <li>Knows Tailwind-like styling, MySQL + PDF gen.</li>
           </ul>
         </section>
