@@ -295,3 +295,26 @@ h3 {
     opacity: 1;
   }
 }
+@media (max-width: 768px) {
+  .mindset-card {
+    padding: 1.25rem;
+  }
+
+  .modal {
+    padding: 1.5rem;
+    max-height: 80vh;
+    overflow-y: auto;
+  }
+
+  .modal h3 {
+    font-size: 1.2rem;
+  }
+
+  .modal p {
+    font-size: 0.95rem;
+  }
+
+  .read-more {
+    font-size: 0.85rem;
+  }
+}
