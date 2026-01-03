@@ -218,3 +218,80 @@ h3 {
     align-items: flex-start;
   }
 }
+.section-subtitle {
+  color: #777;
+  max-width: 600px;
+  margin-bottom: 1.5rem;
+}
+
+/* Cards */
+.mindset-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.mindset-card {
+  padding: 1.5rem;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.light-mode .mindset-card {
+  background: #fff;
+}
+
+.mindset-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+}
+
+.read-more {
+  display: inline-block;
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: #0f0f0f;
+  padding: 2rem;
+  border-radius: 16px;
+  max-width: 600px;
+  width: 90%;
+  animation: slideUp 0.25s ease;
+}
+
+.light-mode .modal {
+  background: #fff;
+}
+
+.modal p {
+  line-height: 1.7;
+  margin: 1rem 0;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
