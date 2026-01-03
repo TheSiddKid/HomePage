@@ -1,9 +1,44 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "../styles/index.css";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 
+/* =========================
+   STEP 1: MINDSET DATA
+========================= */
+type Mindset = {
+  title: string;
+  preview: string;
+  content: string;
+};
+
+const mindsetData: Mindset[] = [
+  {
+    title: "I’m still learning",
+    preview: "Learning never stops.",
+    content:
+      "I believe learning is a continuous process. I don’t see gaps in knowledge as limitations, but as opportunities to grow. Every project, concept, and challenge teaches me something new. Whether it’s understanding a new technology, improving an existing solution, or refining my approach, I’m always open to learning and evolving. This mindset helps me adapt, improve, and move forward with confidence.",
+  },
+  {
+    title: "Jack of all trades, master of none",
+    preview: "Versatility over limitation.",
+    content:
+      "I work across multiple technologies and domains rather than limiting myself to a single area. I have explored frontend, backend, problem-solving, academic projects, and practical implementations. While I may not claim complete mastery in one specific field yet, I have the ability to learn quickly, connect ideas, and make things work. This versatility allows me to adapt to different requirements and build solutions by learning what is needed and applying it effectively.",
+  },
+  {
+    title: "Sincerity at its peak!",
+    preview: "Genuine effort, no shortcuts.",
+    content:
+      "I approach my work with honesty and dedication. Every project, assignment, or idea I work on receives genuine effort and attention to detail. I focus on understanding concepts rather than blindly copying, and I strive to present my work in a clear and meaningful way. My sincerity reflects in how I learn, build, and improve — ensuring that whatever I create truly represents my effort and intent.",
+  },
+];
+
 const Home: React.FC = () => {
+  /* =========================
+     STEP 2: MODAL STATE
+  ========================= */
+  const [activeMindset, setActiveMindset] = useState<Mindset | null>(null);
+
   useEffect(() => {
     const yearEl = document.getElementById("year");
     if (yearEl) yearEl.textContent = new Date().getFullYear().toString();
@@ -25,77 +60,6 @@ const Home: React.FC = () => {
     if (localStorage.getItem("theme") === "light") {
       root.classList.add("light-mode");
     }
-
-    const profile = {
-      name: "Junaid Siddiqui",
-      location: "India",
-      college: "Anjuman-I-Islam’s M. H. Saboo Siddik College of Engineering",
-      projects: [
-        "DeepFake Detection (images & video)",
-        "Health Chatbot (React + Gemini API)",
-        "AES symmetric encryption + Chatbot",
-        "E-Way Bill UI clone (HTML/CSS/JS + PHP + MySQL)",
-      ],
-      skills: [
-        "Java",
-        "C",
-        "C++",
-        "Python",
-        "JavaScript",
-        "PHP",
-        "SQL",
-        "HTML",
-        "CSS",
-        "React",
-      ],
-      tools: ["VS Code", "Chrome", "Turbo C++", "MySQL", "Git"],
-      notes: ["Creating small GUI apps & games (Java, Snake game enhancements)"],
-    };
-
-    const copyBtn = document.getElementById("copyProfile");
-    const downloadBtn = document.getElementById("downloadBtn");
-
-    if (copyBtn) {
-      copyBtn.addEventListener("click", async () => {
-        try {
-          await navigator.clipboard.writeText(
-            JSON.stringify(profile, null, 2)
-          );
-          copyBtn.textContent = "Copied!";
-          setTimeout(
-            () => (copyBtn.textContent = "Copy Summary JSON"),
-            1500
-          );
-        } catch {
-          copyBtn.textContent = "Copy failed";
-        }
-      });
-    }
-
-    if (downloadBtn) {
-      downloadBtn.addEventListener("click", () => {
-        const blob = new Blob([JSON.stringify(profile, null, 2)], {
-          type: "application/json",
-        });
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement("a");
-        a.href = url;
-        a.download = "junaid_profile.json";
-        document.body.appendChild(a);
-        a.click();
-        a.remove();
-        URL.revokeObjectURL(url);
-      });
-    }
-
-    const handleKeyUp = (e: KeyboardEvent) => {
-      if (e.key === "Tab") root.classList.add("show-focus");
-    };
-    document.body.addEventListener("keyup", handleKeyUp);
-
-    return () => {
-      document.body.removeEventListener("keyup", handleKeyUp);
-    };
   }, []);
 
   return (
@@ -123,7 +87,6 @@ const Home: React.FC = () => {
                 >
                   View Projects
                 </a>
-
                 <a className="btn ghost" href="#contact">
                   Get in touch
                 </a>
@@ -132,21 +95,38 @@ const Home: React.FC = () => {
 
             <div className="hero-meta">
               <ul>
-                <li>
-                  <strong>Location:</strong> India
-                </li>
+                <li><strong>Location:</strong> India</li>
                 <li>
                   <strong>College:</strong> Anjuman-I-Islam’s M. H. Saboo Siddik
                   College of Engineering
                 </li>
-                <li>
-                  <strong>Devices:</strong> Lenovo laptop (dev)
-                </li>
-                <li>
-                  <strong>Workflows:</strong> VS Code, Chrome, Turbo C++ (legacy)
-                </li>
+                <li><strong>Workflows:</strong> VS Code, Chrome, Turbo C++</li>
               </ul>
             </div>
+          </div>
+        </section>
+
+        {/* =========================
+           STEP 3: MINDSET CARDS
+        ========================= */}
+        <section className="container section">
+          <h3>What Drives Me</h3>
+          <p className="section-subtitle">
+            Not just what I build — but how I think.
+          </p>
+
+          <div className="mindset-grid">
+            {mindsetData.map((item, index) => (
+              <div
+                key={index}
+                className="mindset-card"
+                onClick={() => setActiveMindset(item)}
+              >
+                <h4>{item.title}</h4>
+                <p>{item.preview}</p>
+                <span className="read-more">Read more →</span>
+              </div>
+            ))}
           </div>
         </section>
 
@@ -154,13 +134,9 @@ const Home: React.FC = () => {
         <section id="about" className="container section">
           <h3>About</h3>
           <p>
-            I'm studying Computer Engineering (Mumbai University curriculum) and
+            I'm studying Computer Engineering under Mumbai University and
             working on academic and mini-projects including DeepFake Detection,
             Health Chatbots, AES-based secure systems, and web application clones.
-          </p>
-          <p>
-            I practice Java, C/C++, Python, JavaScript/React, HTML/CSS and use
-            MySQL, PHP and modern dev tools to build projects and presentations.
           </p>
         </section>
 
@@ -169,96 +145,50 @@ const Home: React.FC = () => {
           <h3>Selected Projects</h3>
           <div className="grid">
             <article className="card">
-              <h4>Projects Subdomain</h4>
-              <p>
-                Check out all my projects online:{" "}
-                <a
-                  href="https://projects.thesiddkid.com"
-                  className="btn"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  View Projects
-                </a>
-              </p>
-            </article>
-
-            <article className="card">
               <h4>DeepFake Detection</h4>
-              <p>Detects deepfakes in images & videos with model + GUI.</p>
+              <p>Detects deepfakes in images & videos.</p>
             </article>
-
             <article className="card">
-              <h4>Health Chatbot (React + Gemini API)</h4>
-              <p>
-                Medical assistant chatbot with symptom follow-up and hospital
-                suggestions.
-              </p>
+              <h4>Health Chatbot</h4>
+              <p>React + Gemini API based medical assistant.</p>
             </article>
-
             <article className="card">
-              <h4>Symmetric Encryption (AES) + Medical Chatbot</h4>
-              <p>
-                Combines AES secure messaging with a chatbot interface for
-                patient help.
-              </p>
-            </article>
-
-            <article className="card">
-              <h4>E-Way Bill Website Clone</h4>
-              <p>Recreated Indian govt. portal UI with backend concepts.</p>
+              <h4>AES Encryption + Chatbot</h4>
+              <p>Secure messaging with chatbot interface.</p>
             </article>
           </div>
-        </section>
-
-        {/* SKILLS */}
-        <section id="skills" className="container section">
-          <h3>Skills & Tools</h3>
-          <ul className="skills">
-            <li>Languages: Java, C, C++, Python, JavaScript, PHP, SQL</li>
-            <li>Frontend: HTML, CSS, React</li>
-            <li>ML & CV: DeepFake detection workflows</li>
-            <li>Tools: VS Code, Chrome, Turbo C++, Git</li>
-          </ul>
-        </section>
-
-        {/* PROFILE */}
-        <section id="profile" className="container section">
-          <h3>Full profile</h3>
-          <ul>
-            <li>Student under Mumbai University curriculum.</li>
-            <li>
-              Project topics: Hospital Management, Smart Attendance, DeepFake
-              Detection, AES Chatbot.
-            </li>
-            <li>Built Java GUIs and improved Snake game.</li>
-            <li>Comfortable with Tailwind-like styling and MySQL + PDF gen.</li>
-          </ul>
         </section>
 
         {/* CONTACT */}
         <section id="contact" className="container section">
           <h3>Contact</h3>
-          <div className="contact-grid">
-            <div>
-              <p>
-                <strong>Email:</strong>{" "}
-                <span id="email">thesiddkid@gmail.com</span>
-              </p>
-              <p>
-                <strong>Location:</strong> India
-              </p>
-            </div>
-            <div>
-              <button id="copyProfile" className="btn">
-                Copy Summary JSON
-              </button>
-              <button id="downloadBtn" className="btn ghost">
-                Download Profile JSON
+          <p><strong>Email:</strong> thesiddkid@gmail.com</p>
+          <p><strong>Location:</strong> India</p>
+        </section>
+
+        {/* =========================
+           STEP 4: MODAL
+        ========================= */}
+        {activeMindset && (
+          <div
+            className="modal-overlay"
+            onClick={() => setActiveMindset(null)}
+          >
+            <div
+              className="modal"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <h3>{activeMindset.title}</h3>
+              <p>{activeMindset.content}</p>
+              <button
+                className="btn ghost"
+                onClick={() => setActiveMindset(null)}
+              >
+                Close
               </button>
             </div>
           </div>
-        </section>
+        )}
       </main>
 
       <Footer />
