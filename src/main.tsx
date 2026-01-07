@@ -1,12 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './App';
-import Lenis from '@studio-freight/lenis';
+import App from './App';import Lenis from "lenis";
 import './styles/index.css';
 
 // Initialize Lenis
 const lenis = new Lenis({
-  smooth: true,
   lerp: 0.08,
 });
 
