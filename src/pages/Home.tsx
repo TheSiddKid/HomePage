@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import "../styles/index.css";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import ChatGPTJourney from "../components/ChatGPTJourney";
 
 /* =========================
    STEP 1: MINDSET DATA
@@ -120,7 +121,7 @@ const Home: React.FC = () => {
         </section>
 
         {/* =========================
-           STEP 3: MINDSET CARDS
+           MINDSET CARDS
         ========================= */}
         <section className="container section">
           <h3>What Drives Me</h3>
@@ -177,6 +178,11 @@ const Home: React.FC = () => {
           </div>
         </section>
 
+        {/* =========================
+           CHATGPT JOURNEY (NEW)
+        ========================= */}
+        <ChatGPTJourney />
+
         {/* CONTACT */}
         <section id="contact" className="container section">
           <h3>Contact</h3>
@@ -185,7 +191,7 @@ const Home: React.FC = () => {
         </section>
 
         {/* =========================
-           STEP 4: MODAL (Animated)
+           MODAL (Animated)
         ========================= */}
         <AnimatePresence>
           {activeMindset && (
